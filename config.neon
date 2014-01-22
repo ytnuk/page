@@ -1,0 +1,10 @@
+parameters:
+    webedit:
+        page:
+            directory: %webedit.directory%/page
+    locale:
+        - %webedit.page.directory%/locale
+services:
+    - WebEdit\Page\Model\Facade
+    - WebEdit\Page\Model\Repository
+    - WebEdit\Page\Form\Factory

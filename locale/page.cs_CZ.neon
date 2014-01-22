@@ -1,0 +1,6 @@
+admin:
+    add: Přidat stránku
+    edit: 'Upravit stránku: %page%'
+    form:
+        content:
+            label: Obsah

@@ -1,0 +1,6 @@
+{
+    "name": "webedit/page",
+    "autoload": {
+        "psr-4": {"WebEdit\\Page\\": ""}
+    }
+}
