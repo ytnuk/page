@@ -13,9 +13,6 @@ final class Presenter extends Front\Presenter {
     public $pageFacade;
     private $page;
 
-    /**
-     * @param int $id
-     */
     public function actionView($id) {
         $this->page = $this->pageFacade->repository->getPage($id);
         if (!$this->page) {
