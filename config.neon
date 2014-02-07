@@ -1,7 +1,7 @@
 parameters:
     webedit:
         page:
-            directory: %webedit.directory%/page
+            directory: %vendor.webedit.directory%/page
     locale:
         - %webedit.page.directory%/locale
 services:
