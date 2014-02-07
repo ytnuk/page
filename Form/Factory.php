@@ -23,7 +23,7 @@ final class Factory extends Form\Factory {
     }
 
     protected function editForm($page) {
-        $this->form->addComponent($this->nodeFacade->getFormContainer(NULL, $page->node), 'node');
+        $this->form->addComponent($this->nodeFacade->getFormContainer($page->node), 'node');
         $this->form->addComponent($this->pageFacade->getFormContainer($page), 'page');
         parent::editForm($page);
         if ($page->node->node_id) {
@@ -33,7 +33,7 @@ final class Factory extends Form\Factory {
 
     protected function add($data) {
         $page = $this->pageFacade->addPage($data);
-        $this->presenter->redirect($page->node->link_admin, array('id' => $page->node->link_id));
+        $this->presenter->redirect('Presenter:edit', array('id' => $page->node->link_id));
     }
 
     protected function edit($page, $data) {

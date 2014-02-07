@@ -22,11 +22,11 @@ final class Presenter extends WebEdit\Admin\Presenter {
 
     protected function startup() {
         parent::startup();
-        $this->menu->setActive(':Page:Admin:Presenter:view');
+        $this->menu->breadcrumb->fromLink(':Page:Admin:Presenter:view');
     }
 
     public function renderAdd() {
-        $this->menu->breadcrumbAdd(
+        $this->menu->breadcrumb->append(
                 $this->translator->translate('page.admin.add'), 'Presenter:add');
     }
 
@@ -38,7 +38,7 @@ final class Presenter extends WebEdit\Admin\Presenter {
     }
 
     public function renderEdit() {
-        $this->menu->breadcrumbAdd(
+        $this->menu->breadcrumb->append(
                 $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->node->title]), 'Presenter:edit', $this->page->id);
         $this->template->page = $this->page;
     }
