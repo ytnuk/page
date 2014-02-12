@@ -3,17 +3,17 @@
 namespace WebEdit\Page\Model;
 
 use WebEdit\Model;
-use WebEdit\Menu\Node;
+use WebEdit\Menu;
 use WebEdit\Page;
 
 class Facade extends Model\Facade {
 
     public $repository;
-    private $nodeFacade;
+    private $menuFacade;
 
-    public function __construct(Page\Model\Repository $repository, Node\Model\Facade $nodeFacade) {
+    public function __construct(Page\Model\Repository $repository, Menu\Model\Facade $menuFacade) {
         $this->repository = $repository;
-        $this->nodeFacade = $nodeFacade;
+        $this->menuFacade = $menuFacade;
     }
 
     public function getFormContainer($page = NULL) {
@@ -21,21 +21,21 @@ class Facade extends Model\Facade {
     }
 
     public function addPage(array $data) {
-        $data['node']['link'] = ':Page:Presenter:view';
-        $node = $this->nodeFacade->addNode($data['node']);
-        $data['page']['node_id'] = $node->id;
+        $data['menu']['link'] = ':Page:Presenter:view';
+        $menu = $this->menuFacade->addMenu($data['menu']);
+        $data['page']['menu_id'] = $menu->id;
         $page = $this->repository->insert($data['page']);
-        $this->nodeFacade->editNode($node, array('link_id' => $page->id));
+        $this->menuFacade->editMenu($menu, array('link_id' => $page->id));
         return $page;
     }
 
     public function editPage($page, array $data) {
-        $this->nodeFacade->editNode($page->node, $data['node']);
+        $this->menuFacade->editMenu($page->menu, $data['menu']);
         return $this->repository->update($page, $data['page']);
     }
 
     public function deletePage($page) {
-        $this->nodeFacade->deleteNode($page->node);
+        $this->menuFacade->deleteMenu($page->menu);
         return $this->repository->remove($page);
     }
 

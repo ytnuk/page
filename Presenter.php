@@ -18,7 +18,7 @@ final class Presenter extends Front\Presenter {
         if (!$this->page) {
             $this->error();
         }
-        $this->menu->breadcrumb->fromNode($this->page->node);
+        $this->menu->breadcrumb->fromMenu($this->page->menu);
     }
 
     public function renderView() {
