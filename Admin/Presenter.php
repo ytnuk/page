@@ -21,8 +21,8 @@ final class Presenter extends WebEdit\Admin\Presenter {
     public $pageFormFactory;
 
     public function renderAdd() {
-        $this->menu->breadcrumb->append(
-                $this->translator->translate('page.admin.add'), 'Presenter:add');
+        $title = $this->translator->translate('page.admin.add');
+        $this->menu->breadcrumb->append($title);
     }
 
     public function actionEdit($id) {
@@ -33,9 +33,8 @@ final class Presenter extends WebEdit\Admin\Presenter {
     }
 
     public function renderEdit() {
-        $this->menu->breadcrumb->append(
-                $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->menu->title]), 'Presenter:edit', $this->page->id);
-        $this->template->page = $this->page;
+        $title = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->menu->title]);
+        $this->menu->breadcrumb->append($title);
     }
 
     protected function createComponentPageFormAdd() {

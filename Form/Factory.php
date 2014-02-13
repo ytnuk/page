@@ -26,14 +26,12 @@ final class Factory extends Form\Factory {
         $this->form->addComponent($this->menuFacade->getFormContainer($page->menu), 'menu');
         $this->form->addComponent($this->pageFacade->getFormContainer($page), 'page');
         parent::editForm($page);
-        if ($page->menu->menu_id) {
-            $this->deleteForm($page);
-        }
+        $this->deleteForm($page);
     }
 
     protected function add($data) {
         $page = $this->pageFacade->addPage($data);
-        $this->presenter->redirect('Presenter:edit', array('id' => $page->menu->link_id));
+        $this->presenter->redirect('Presenter:edit', array('id' => $page->id));
     }
 
     protected function edit($page, $data) {
