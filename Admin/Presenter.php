@@ -10,39 +10,37 @@ final class Presenter extends WebEdit\Admin\Presenter {
 
     /**
      * @inject
-     * @var \WebEdit\Page\Model\Facade
+     * @var \WebEdit\Page\Repository
      */
-    public $pageFacade;
+    public $repository;
 
     /**
      * @inject
      * @var \WebEdit\Page\Form\Factory
      */
-    public $pageFormFactory;
+    public $formFactory;
 
     public function renderAdd() {
-        $title = $this->translator->translate('page.admin.add');
-        $this->menu->breadcrumb->append($title);
+        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.add');
     }
 
     public function actionEdit($id) {
-        $this->page = $this->pageFacade->repository->getPage($id);
+        $this->page = $this->repository->getPage($id);
         if (!$this->page) {
             $this->error();
         }
     }
 
     public function renderEdit() {
-        $title = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->menu->title]);
-        $this->menu->breadcrumb->append($title);
+        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->menu->title]);
     }
 
     protected function createComponentPageFormAdd() {
-        return $this->pageFormFactory->create();
+        return $this->formFactory->create();
     }
 
     protected function createComponentPageFormEdit() {
-        return $this->pageFormFactory->create($this->page);
+        return $this->formFactory->create($this->page);
     }
 
 }

@@ -5,6 +5,6 @@ parameters:
     locale:
         - %webedit.page.directory%/locale
 services:
-    - WebEdit\Page\Model\Facade
-    - WebEdit\Page\Model\Repository
+    - WebEdit\Page\Facade
+    - WebEdit\Page\Repository
     - WebEdit\Page\Form\Factory

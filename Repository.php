@@ -1,13 +1,13 @@
 <?php
 
-namespace WebEdit\Page\Model;
+namespace WebEdit\Page;
 
 use WebEdit\Database;
 
 final class Repository extends Database\Repository {
 
     public function getPage($id) {
-        return $this->table()->get($id);
+        return $this->storage()->get($id);
     }
 
 }

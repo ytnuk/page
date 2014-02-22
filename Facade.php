@@ -1,17 +1,17 @@
 <?php
 
-namespace WebEdit\Page\Model;
+namespace WebEdit\Page;
 
-use WebEdit\Model;
+use WebEdit;
 use WebEdit\Menu;
 use WebEdit\Page;
 
-class Facade extends Model\Facade {
+class Facade extends WebEdit\Facade {
 
     public $repository;
     private $menuFacade;
 
-    public function __construct(Page\Model\Repository $repository, Menu\Model\Facade $menuFacade) {
+    public function __construct(Page\Repository $repository, Menu\Facade $menuFacade) {
         $this->repository = $repository;
         $this->menuFacade = $menuFacade;
     }

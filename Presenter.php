@@ -8,17 +8,17 @@ final class Presenter extends Front\Presenter {
 
     /**
      * @inject
-     * @var \WebEdit\Page\Model\Facade
+     * @var \WebEdit\Page\Repository
      */
-    public $pageFacade;
+    public $repository;
     private $page;
 
     public function actionView($id) {
-        $this->page = $this->pageFacade->repository->getPage($id);
+        $this->page = $this->repository->getPage($id);
         if (!$this->page) {
             $this->error();
         }
-        $this->menu->breadcrumb->fromMenu($this->page->menu);
+        $this['menu']['breadcrumb'][] = $this->page->menu;
     }
 
     public function renderView() {
