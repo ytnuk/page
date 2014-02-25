@@ -1,6 +1,7 @@
 admin:
     add: Add new page
     edit: 'Edit page: %page%'
-    form:
-        content:
-            label: Content
+form:
+    group: Page
+    content:
+        label: Content

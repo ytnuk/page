@@ -16,27 +16,24 @@ class Facade extends WebEdit\Facade {
         $this->menuFacade = $menuFacade;
     }
 
-    public function getFormContainer($page = NULL) {
-        return new Page\Form\Container($page);
-    }
-
     public function addPage(array $data) {
-        $data['menu']['link'] = ':Page:Presenter:view';
-        $menu = $this->menuFacade->addMenu($data['menu']);
+        $menu = $this->menuFacade->addMenu($data);
         $data['page']['menu_id'] = $menu->id;
         $page = $this->repository->insert($data['page']);
-        $this->menuFacade->editMenu($menu, array('link_id' => $page->id));
+        $data['menu']['link'] = ':Page:Presenter:view';
+        $data['menu']['link_id'] = $page->id;
+        $this->menuFacade->editMenu($menu, $data);
         return $page;
     }
 
     public function editPage($page, array $data) {
-        $this->menuFacade->editMenu($page->menu, $data['menu']);
-        return $this->repository->update($page, $data['page']);
+        $this->menuFacade->editMenu($page->menu, $data);
+        $this->repository->update($page, $data['page']);
     }
 
     public function deletePage($page) {
         $this->menuFacade->deleteMenu($page->menu);
-        return $this->repository->remove($page);
+        $this->repository->remove($page);
     }
 
 }

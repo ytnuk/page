@@ -18,10 +18,10 @@ final class Presenter extends Front\Presenter {
         if (!$this->page) {
             $this->error();
         }
-        $this['menu']['breadcrumb'][] = $this->page->menu;
     }
 
     public function renderView() {
+        $this['menu']['breadcrumb'][] = $this->page->menu;
         $this->template->page = $this->page;
     }
 
