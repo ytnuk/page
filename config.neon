@@ -1,9 +1,8 @@
 parameters:
-    webedit:
-        page:
-            directory: %vendor.webedit.directory%/page
+    page:
+        directory: %vendor.webedit.directory%/page
     locale:
-        - %webedit.page.directory%/locale
+        - %page.directory%/locale
 services:
     - WebEdit\Page\Facade
     - WebEdit\Page\Repository

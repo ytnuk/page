@@ -2,11 +2,10 @@
 
 namespace WebEdit\Page;
 
-use WebEdit;
 use WebEdit\Menu;
 use WebEdit\Page;
 
-class Facade extends WebEdit\Facade {
+final class Facade {
 
     public $repository;
     private $menuFacade;

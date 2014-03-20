@@ -31,7 +31,7 @@ final class Presenter extends WebEdit\Admin\Presenter {
     }
 
     public function handleAdd($form) {
-        $page = $this->facade->addPage($form->getValues(TRUE));
+        $page = $this->facade->addPage($form->getValues());
         $this->redirect('Presenter:edit', ['id' => $page->id]);
     }
 
@@ -54,7 +54,7 @@ final class Presenter extends WebEdit\Admin\Presenter {
             $this->facade->deletePage($this->page);
             $this->redirect('Presenter:view');
         } else {
-            $this->facade->editPage($this->page, $form->getValues(TRUE));
+            $this->facade->editPage($this->page, $form->getValues());
             $this->redirect('this');
         }
     }
