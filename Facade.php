@@ -15,8 +15,8 @@ final class Facade {
         $this->menuFacade = $menuFacade;
     }
 
-    public function addPage(array $data) {
-        $menu = $this->menuFacade->addMenu($data);
+    public function add(array $data) {
+        $menu = $this->menuFacade->add($data);
         $data['page']['menu_id'] = $menu->id;
         $page = $this->repository->insert($data['page']);
         $data['menu']['link'] = ':Page:Presenter:view';
@@ -25,12 +25,12 @@ final class Facade {
         return $page;
     }
 
-    public function editPage($page, array $data) {
+    public function edit($page, array $data) {
         $this->menuFacade->editMenu($page->menu, $data);
         $this->repository->update($page, $data['page']);
     }
 
-    public function deletePage($page) {
+    public function delete($page) {
         $this->menuFacade->deleteMenu($page->menu);
         $this->repository->remove($page);
     }

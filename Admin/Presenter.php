@@ -3,10 +3,12 @@
 namespace WebEdit\Page\Admin;
 
 use WebEdit;
+use WebEdit\Menu;
+use WebEdit\Page;
 
 final class Presenter extends WebEdit\Admin\Presenter {
 
-    private $page;
+    protected $entity;
 
     /**
      * @inject
@@ -22,17 +24,12 @@ final class Presenter extends WebEdit\Admin\Presenter {
 
     /**
      * @inject
-     * @var \WebEdit\Page\Form\Factory
+     * @var \WebEdit\Menu\Facade
      */
-    public $formFactory;
+    public $menuFacade;
 
     public function actionAdd() {
-        $this['form']->onSuccess[] = [$this, 'handleAdd'];
-    }
-
-    public function handleAdd($form) {
-        $page = $this->facade->addPage($form->getValues());
-        $this->redirect('Presenter:edit', ['id' => $page->id]);
+        $this['form']['menu']['menu_id']->setItems($this->menuFacade->getChildren());
     }
 
     public function renderAdd() {
@@ -40,31 +37,24 @@ final class Presenter extends WebEdit\Admin\Presenter {
     }
 
     public function actionEdit($id) {
-        $this->page = $this->repository->getPage($id);
-        if (!$this->page) {
+        $this->entity = $this->repository->getPage($id);
+        if (!$this->entity) {
             $this->error();
         }
-        $this['form']['page']->setDefaults($this->page);
-        $this['form']['menu']->setDefaults($this->page->menu);
-        $this['form']->onSuccess[] = [$this, 'handleEdit'];
-    }
-
-    public function handleEdit($form) {
-        if ($form->submitted->name == 'delete') {
-            $this->facade->deletePage($this->page);
-            $this->redirect('Presenter:view');
-        } else {
-            $this->facade->editPage($this->page, $form->getValues());
-            $this->redirect('this');
-        }
+        $this['form']['page']->setDefaults($this->entity);
+        $this['form']['menu']['menu_id']->setItems($this->menuFacade->getChildren($this->entity->menu));
+        $this['form']['menu']->setDefaults($this->entity->menu);
     }
 
     public function renderEdit() {
-        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->page->menu->title]);
+        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->entity->menu->title]);
     }
 
     protected function createComponentForm() {
-        return $this->formFactory->create($this->page);
+        $form = $this->formFactory->create($this->entity);
+        $form['menu'] = new Menu\Form\Container;
+        $form['page'] = new Page\Form\Container;
+        return $form;
     }
 
 }
