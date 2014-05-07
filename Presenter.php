@@ -3,12 +3,13 @@
 namespace WebEdit\Page;
 
 use WebEdit\Front;
+use WebEdit\Page;
 
 final class Presenter extends Front\Presenter {
 
     /**
      * @inject
-     * @var \WebEdit\Page\Repository
+     * @var Page\Repository
      */
     public $repository;
     private $page;

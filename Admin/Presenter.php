@@ -2,29 +2,29 @@
 
 namespace WebEdit\Page\Admin;
 
-use WebEdit;
-use WebEdit\Menu;
+use WebEdit\Admin;
 use WebEdit\Page;
+use WebEdit\Menu;
 
-final class Presenter extends WebEdit\Admin\Presenter {
+final class Presenter extends Admin\Presenter {
 
     protected $entity;
 
     /**
      * @inject
-     * @var \WebEdit\Page\Repository
+     * @var Page\Repository
      */
     public $repository;
 
     /**
      * @inject
-     * @var \WebEdit\Page\Facade
+     * @var Page\Facade
      */
     public $facade;
 
     /**
      * @inject
-     * @var \WebEdit\Menu\Facade
+     * @var Menu\Facade
      */
     public $menuFacade;
 
