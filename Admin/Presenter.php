@@ -4,11 +4,8 @@ namespace WebEdit\Page\Admin;
 
 use WebEdit\Admin;
 use WebEdit\Page;
-use WebEdit\Menu;
 
 final class Presenter extends Admin\Presenter {
-
-    protected $entity;
 
     /**
      * @inject
@@ -18,43 +15,29 @@ final class Presenter extends Admin\Presenter {
 
     /**
      * @inject
-     * @var Page\Facade
+     * @var Page\Control\Factory
      */
-    public $facade;
-
-    /**
-     * @inject
-     * @var Menu\Facade
-     */
-    public $menuFacade;
-
-    public function actionAdd() {
-        $this['form']['menu']['menu_id']->setItems($this->menuFacade->getChildren());
-    }
+    public $control;
+    private $page;
 
     public function renderAdd() {
-        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.add');
+        $this['menu']['breadcrumb'][] = 'page.admin.add';
     }
 
     public function actionEdit($id) {
-        $this->entity = $this->repository->getPage($id);
-        if (!$this->entity) {
+        $this->page = $this->repository->getPage($id);
+        if (!$this->page) {
             $this->error();
         }
-        $this['form']['page']->setDefaults($this->entity);
-        $this['form']['menu']['menu_id']->setItems($this->menuFacade->getChildren($this->entity->menu));
-        $this['form']['menu']->setDefaults($this->entity->menu);
+        $this['page']->setEntity($this->page);
     }
 
     public function renderEdit() {
-        $this['menu']['breadcrumb'][] = $this->translator->translate('page.admin.edit', NULL, ['page' => $this->entity->menu->title]);
+        $this['menu']['breadcrumb'][] = 'page.admin.edit';
     }
 
-    protected function createComponentForm() {
-        $form = $this->formFactory->create($this->entity);
-        $form['menu'] = new Menu\Form\Container;
-        $form['page'] = new Page\Form\Container;
-        return $form;
+    protected function createComponentPage() {
+        return $this->control->create();
     }
 
 }

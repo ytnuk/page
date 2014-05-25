@@ -14,16 +14,26 @@ final class Presenter extends Front\Presenter {
     public $repository;
     private $page;
 
+    /**
+     * @inject
+     * @var Page\Control\Factory
+     */
+    public $control;
+
     public function actionView($id) {
         $this->page = $this->repository->getPage($id);
         if (!$this->page) {
             $this->error();
         }
+        $this['page']->setEntity($this->page);
     }
 
     public function renderView() {
         $this['menu']['breadcrumb'][] = $this->page->menu;
-        $this->template->page = $this->page;
+    }
+
+    protected function createComponentPage() {
+        return $this->control->create();
     }
 
 }
