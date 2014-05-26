@@ -1,5 +1,10 @@
 {
     "name": "webedit/page",
+    "require": {
+        "webedit/core": "dev-master",
+        "webedit/menu": "dev-master",
+        "webedit/form": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "WebEdit\\": "src/"
