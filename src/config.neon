@@ -1,5 +1,0 @@
-services:
-    - WebEdit\Page\Repository
-    - WebEdit\Page\Facade
-    - WebEdit\Page\Control\Factory
-    - WebEdit\Page\Form\Control\Factory
