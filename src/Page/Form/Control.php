@@ -2,11 +2,12 @@
 
 namespace WebEdit\Page\Form;
 
-use WebEdit\Form;
+use WebEdit\Entity;
 use WebEdit\Page;
+use WebEdit\Form;
 use WebEdit\Menu;
 
-final class Control extends Form\Control {
+final class Control extends Entity\Form\Control {
 
     private $menuFacade;
 
