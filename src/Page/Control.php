@@ -11,9 +11,4 @@ final class Control extends Entity\Control {
         $this->form = $form;
     }
 
-    public function render() {
-        $this->template->page = $this->entity;
-        $this->template->render($this->getTemplateFiles('page'));
-    }
-
 }
