@@ -21,7 +21,7 @@ final class Presenter extends Admin\Presenter {
     private $page;
 
     public function renderAdd() {
-        $this['menu']['breadcrumb'][] = 'page.admin.add';
+        $this['menu'][] = 'page.admin.add';
     }
 
     public function actionEdit($id) {
@@ -33,7 +33,7 @@ final class Presenter extends Admin\Presenter {
     }
 
     public function renderEdit() {
-        $this['menu']['breadcrumb'][] = 'page.admin.edit';
+        $this['menu'][] = 'page.admin.edit';
     }
 
     protected function createComponentPage() {

@@ -7,8 +7,8 @@ use WebEdit\Page\Form;
 
 final class Control extends Entity\Control {
 
-    public function __construct(Form\Control\Factory $form) {
-        $this->form = $form;
+    public function __construct(Form\Control\Factory $formControl) {
+        $this->formControl = $formControl;
     }
 
 }
