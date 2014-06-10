@@ -11,8 +11,4 @@ final class Control extends Entity\Control {
         $this->formControl = $formControl;
     }
 
-    public function render($type = 'page') {
-        parent::render($type);
-    }
-
 }
