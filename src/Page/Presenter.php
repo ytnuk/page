@@ -7,18 +7,14 @@ use WebEdit\Page;
 
 final class Presenter extends Front\Presenter {
 
-    /**
-     * @inject
-     * @var Page\Repository
-     */
-    public $repository;
+    private $repository;
+    private $control;
     private $page;
 
-    /**
-     * @inject
-     * @var Page\Control\Factory
-     */
-    public $control;
+    public function __construct(Page\Repository $repository, Page\Control\Factory $control) {
+        $this->repository = $repository;
+        $this->control = $control;
+    }
 
     public function actionView($id) {
         $this->page = $this->repository->getPage($id);

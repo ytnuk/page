@@ -7,7 +7,7 @@ use WebEdit\Page;
 
 final class Facade {
 
-    public $repository;
+    private $repository;
     private $menuFacade;
 
     public function __construct(Page\Repository $repository, Menu\Facade $menuFacade) {

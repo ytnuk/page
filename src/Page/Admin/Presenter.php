@@ -7,18 +7,14 @@ use WebEdit\Page;
 
 final class Presenter extends Admin\Presenter {
 
-    /**
-     * @inject
-     * @var Page\Repository
-     */
-    public $repository;
-
-    /**
-     * @inject
-     * @var Page\Control\Factory
-     */
-    public $control;
+    private $repository;
+    private $control;
     private $page;
+
+    public function __construct(Page\Repository $repository, Page\Control\Factory $control) {
+        $this->repository = $repository;
+        $this->control = $control;
+    }
 
     public function renderAdd() {
         $this['menu'][] = 'page.admin.add';
