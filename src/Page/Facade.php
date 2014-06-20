@@ -21,17 +21,17 @@ final class Facade {
         $page = $this->repository->insert($data['page']);
         $data['menu']['link'] = ':Page:Presenter:view';
         $data['menu']['link_id'] = $page->id;
-        $this->menuFacade->editMenu($menu, $data);
+        $this->menuFacade->edit($menu, $data);
         return $page;
     }
 
     public function edit($page, array $data) {
-        $this->menuFacade->editMenu($page->menu, $data);
+        $this->menuFacade->edit($page->menu, $data);
         $this->repository->update($page, $data['page']);
     }
 
     public function delete($page) {
-        $this->menuFacade->deleteMenu($page->menu);
+        $this->menuFacade->delete($page->menu);
         $this->repository->remove($page);
     }
 
