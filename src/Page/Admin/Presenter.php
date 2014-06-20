@@ -2,10 +2,10 @@
 
 namespace WebEdit\Page\Admin;
 
-use WebEdit\Admin;
+use WebEdit\Application;
 use WebEdit\Page;
 
-final class Presenter extends Admin\Presenter {
+final class Presenter extends Application\Admin\Presenter {
 
     private $repository;
     private $control;
