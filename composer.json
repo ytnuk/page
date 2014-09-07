@@ -1,5 +1,11 @@
 {
     "name": "webedit/page",
+    "type": "webedit-module",
+    "extra": {
+        "extensions": {
+            "page": "WebEdit\\Page\\Extension"
+        }
+    },
     "require": {
         "webedit/application": "dev-master",
         "webedit/menu": "dev-master",
