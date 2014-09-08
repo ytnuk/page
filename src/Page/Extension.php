@@ -2,21 +2,31 @@
 
 namespace WebEdit\Page;
 
-use WebEdit\DI;
+use WebEdit\Module;
+use WebEdit\Application;
+use WebEdit\Database;
 use WebEdit\Translation;
+use WebEdit\Page;
+use WebEdit\Page\Form;
 
-final class Extension extends DI\Extension implements Translation\Provider {
+final class Extension extends Module\Extension implements Application\Provider, Database\Provider, Translation\Provider {
 
-    public function loadConfiguration() {
-        $builder = $this->getContainerBuilder();
-        $builder->addDefinition($this->prefix('repository'))
-                ->setClass('WebEdit\Page\Repository');
-        $builder->addDefinition($this->prefix('facade'))
-                ->setClass('WebEdit\Page\Facade');
-        $builder->addDefinition($this->prefix('control'))
-                ->setImplement('WebEdit\Page\Control\Factory');
-        $builder->addDefinition($this->prefix('form.control'))
-                ->setImplement('WebEdit\Page\Form\Control\Factory');
+    public function getApplicationResources() {
+        return [
+            'services' => [
+                Page\Facade::class,
+                Page\Control\Factory::class,
+                Form\Control\Factory::class
+            ]
+        ];
+    }
+
+    public function getDatabaseResources() {
+        return [
+            'repositories' => [
+                Page\Repository::class
+            ]
+        ];
     }
 
 }
