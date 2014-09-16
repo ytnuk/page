@@ -4,7 +4,8 @@ namespace WebEdit\Page\Form\Control;
 
 use WebEdit\Page\Form;
 
-interface Factory {
+interface Factory
+{
 
     /**
      * @return Form\Control

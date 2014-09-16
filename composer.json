@@ -10,8 +10,11 @@
         "webedit/module": "dev-master",
         "webedit/application": "dev-master",
         "webedit/menu": "dev-master",
+        "webedit/database": "dev-master",
         "webedit/form": "dev-master",
-        "webedit/translation": "dev-master"
+        "webedit/translation": "dev-master",
+        "webedit/front": "dev-master",
+        "webedit/admin": "dev-master"
     },
     "autoload": {
         "psr-4": {

@@ -7,8 +7,9 @@ use WebEdit\Menu;
 
 /**
  * @property Menu\Entity $menu {m:1 Menu\Repository $groups}
- * @property string $key
+ * @property string $content
  */
-final class Entity extends Database\Entity {
-    
+final class Entity extends Database\Entity
+{
+
 }

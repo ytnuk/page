@@ -2,19 +2,42 @@
 
 namespace WebEdit\Entity\Form;
 
-use WebEdit\Form;
 use WebEdit\Entity;
+use WebEdit\Form;
 
-abstract class Control extends Form\Control {
+abstract class Control extends Form\Control
+{
 
     protected $facade;
     protected $entity;
 
-    public function setEntity($entity) {
+    public function setEntity($entity)
+    {
         $this->entity = $entity;
     }
 
-    private function onFormSubmit($form) {
+    protected function createComponentForm()
+    {
+        $form = parent::createComponentForm();
+        if ($this->entity) {
+            $form->addSubmit('edit', 'form.button.save');
+            $form->addSubmit('delete', 'form.button.delete')->setValidationScope(FALSE);
+        } else {
+            $form->addSubmit('add', 'form.button.add');
+        }
+        $form->onSubmit[] = function ($form) {
+            try {
+                $this->onFormSubmit($form);
+            } catch (Entity\Exception $ex) {
+                $this->presenter->flashMessage($ex->getMessage());
+                $this->presenter->redirect('this');
+            }
+        };
+        return $form;
+    }
+
+    private function onFormSubmit($form)
+    {
         $args = [];
         if ($this->entity) {
             $args[] = $this->entity;
@@ -28,25 +51,6 @@ abstract class Control extends Form\Control {
         } else {
             $this->presenter->redirect('this');
         }
-    }
-
-    protected function createComponentForm() {
-        $form = parent::createComponentForm();
-        if ($this->entity) {
-            $form->addSubmit('edit', 'form.button.save');
-            $form->addSubmit('delete', 'form.button.delete')->setValidationScope(FALSE);
-        } else {
-            $form->addSubmit('add', 'form.button.add');
-        }
-        $form->onSubmit[] = function($form) {
-            try {
-                $this->onFormSubmit($form);
-            } catch (Entity\Exception $ex) {
-                $this->presenter->flashMessage($ex->getMessage());
-                $this->presenter->redirect('this');
-            }
-        };
-        return $form;
     }
 
 }

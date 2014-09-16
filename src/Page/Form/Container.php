@@ -4,9 +4,11 @@ namespace WebEdit\Page\Form;
 
 use WebEdit\Form;
 
-final class Container extends Form\Container {
+final class Container extends Form\Container
+{
 
-    protected function configure() {
+    protected function configure()
+    {
         $this->addTextArea('content', 'page.form.content.label')->setRequired();
     }
 

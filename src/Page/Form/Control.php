@@ -3,21 +3,24 @@
 namespace WebEdit\Page\Form;
 
 use WebEdit\Entity;
-use WebEdit\Page;
 use WebEdit\Form;
 use WebEdit\Menu;
+use WebEdit\Page;
 
-final class Control extends Entity\Form\Control {
+final class Control extends Entity\Form\Control
+{
 
     private $menuFacade;
 
-    public function __construct(Page\Facade $facade, Form\Factory $form, Menu\Facade $menuFacade) {
+    public function __construct(Page\Facade $facade, Form\Factory $form, Menu\Facade $menuFacade)
+    {
         $this->facade = $facade;
         $this->form = $form;
         $this->menuFacade = $menuFacade;
     }
 
-    protected function createComponentForm() {
+    protected function createComponentForm()
+    {
         $form = parent::createComponentForm();
         $form['menu'] = new Menu\Form\Container;
         $form['page'] = new Page\Form\Container;
