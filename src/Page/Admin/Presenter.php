@@ -25,11 +25,10 @@ final class Presenter extends Admin\Presenter
 
     public function actionEdit($id)
     {
-        $this->page = $this->repository->getPage($id);
+        $this->page = $this->repository->getById($id);
         if (!$this->page) {
             $this->error();
         }
-        $this['page']->setEntity($this->page);
     }
 
     public function renderEdit()
@@ -39,7 +38,7 @@ final class Presenter extends Admin\Presenter
 
     protected function createComponentPage()
     {
-        return $this->control->create();
+        return $this->control->create($this->page);
     }
 
 }

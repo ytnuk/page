@@ -10,5 +10,5 @@ interface Factory
     /**
      * @return Page\Control
      */
-    public function create();
+    public function create($page);
 }

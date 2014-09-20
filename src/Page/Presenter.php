@@ -24,7 +24,6 @@ final class Presenter extends Front\Presenter
         if (!$this->page) {
             $this->error();
         }
-        $this['page']->setPage($this->page);
     }
 
     public function renderView()
@@ -34,7 +33,7 @@ final class Presenter extends Front\Presenter
 
     protected function createComponentPage()
     {
-        return $this->control->create();
+        return $this->control->create($this->page);
     }
 
 }

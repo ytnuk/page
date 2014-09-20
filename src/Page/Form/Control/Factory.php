@@ -2,6 +2,7 @@
 
 namespace WebEdit\Page\Form\Control;
 
+use WebEdit\Page;
 use WebEdit\Page\Form;
 
 interface Factory
@@ -10,5 +11,5 @@ interface Factory
     /**
      * @return Form\Control
      */
-    public function create();
+    public function create($page);
 }

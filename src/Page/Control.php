@@ -3,7 +3,7 @@
 namespace WebEdit\Page;
 
 use WebEdit\Application;
-use WebEdit\Page\Form;
+use WebEdit\Page;
 
 final class Control extends Application\Control
 {
@@ -11,14 +11,10 @@ final class Control extends Application\Control
     private $page;
     private $formControl;
 
-    public function __construct(Form\Control\Factory $formControl)
-    {
-        $this->formControl = $formControl;
-    }
-
-    public function setPage($page)
+    public function __construct($page, Page\Form\Control\Factory $formControl)
     {
         $this->page = $page;
+        $this->formControl = $formControl;
     }
 
     protected function startup()
@@ -28,11 +24,7 @@ final class Control extends Application\Control
 
     protected function createComponentForm()
     {
-        $form = $this->formControl->create();
-        if ($this->page) {
-            $form->setEntity($this->page);
-        }
-        return $form;
+        return $this->formControl->create($this->page);
     }
 
 }

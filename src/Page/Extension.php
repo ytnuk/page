@@ -6,7 +6,6 @@ use WebEdit\Application;
 use WebEdit\Database;
 use WebEdit\Module;
 use WebEdit\Page;
-use WebEdit\Page\Form;
 use WebEdit\Translation;
 
 final class Extension extends Module\Extension implements Application\Provider, Database\Provider, Translation\Provider
@@ -17,8 +16,14 @@ final class Extension extends Module\Extension implements Application\Provider, 
         return [
             'services' => [
                 Page\Facade::class,
-                Page\Control\Factory::class,
-                Form\Control\Factory::class
+                [
+                    'class' => Page\Control\Factory::class,
+                    'parameters' => ['page']
+                ],
+                [
+                    'class' => Page\Form\Control\Factory::class,
+                    'parameters' => ['page']
+                ]
             ]
         ];
     }

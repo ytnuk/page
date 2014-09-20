@@ -9,36 +9,37 @@ final class Facade
 {
 
     private $repository;
-    private $menuFacade;
+    private $menuRepository;
 
-    public function __construct(Page\Repository $repository, Menu\Facade $menuFacade)
+    public function __construct(Page\Repository $repository, Menu\Repository $menuRepository)
     {
         $this->repository = $repository;
-        $this->menuFacade = $menuFacade;
+        $this->menuRepository = $menuRepository;
     }
-    /**
-     * public function add(array $data)
-     * {
-     * $menu = $this->menuFacade->add($data);
-     * $data['page']['menu_id'] = $menu->id;
-     * $page = $this->repository->insert($data['page']);
-     * $data['menu']['link'] = ':Page:Presenter:view';
-     * $data['menu']['link_id'] = $page->id;
-     * $this->menuFacade->edit($menu, $data);
-     * return $page;
-     * }
-     *
-     * public function edit($page, array $data)
-     * {
-     * $this->menuFacade->edit($page->menu, $data);
-     * $this->repository->update($page, $data['page']);
-     * }
-     *
-     * public function delete($page)
-     * {
-     * $this->menuFacade->delete($page->menu);
-     * $this->repository->remove($page);
-     * }
-     **/
+
+    public function add($values) //TODO
+    {
+        $page = new Page\Entity;
+        $this->repository->attach($page);
+        $page->content = $values->page->content;
+        $menu = new Menu\Entity;
+        $this->menuRepository->attach($menu);
+        $menu->title = $values->menu->title;
+        $menu->link = ':Page:Presenter:view';
+        $menu->linkId = $page->id;
+        $menu->parent = 1; //TODO
+        $page->menu = $menu;
+        return $this->repository->persistAndFlush($page);
+    }
+
+    public function edit($page, array $data)
+    {
+        //TODO
+    }
+
+    public function delete($page)
+    {
+        //TODO
+    }
 
 }
