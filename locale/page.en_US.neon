@@ -1,5 +1,6 @@
 admin:
-    add: Add new page
+    view: Pages
+    add: Add page
     edit: Edit page
 form:
     group: Page

@@ -1,4 +1,5 @@
 admin:
+    view: Stránky
     add: Přidat stránku
     edit: Upravit stránku
 form:
