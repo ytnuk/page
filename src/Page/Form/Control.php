@@ -27,13 +27,13 @@ final class Control extends Form\Control
         $form = $this->form->create($this->page);
         $form['menu'] = new Menu\Form\Container;
         $form['page'] = new Page\Form\Container;
-        //$this->menuFacade->getChildren($this->page ? $this->page->menu : NULL);
         $front = $this->menuRepository->getByUid('front');
         $form['menu']['parent']->setItems($this->menuRepository->findChildren($front)->fetchPairs('id', 'title'));
         if ($this->page) {
             $form['page']->setDefaults($this->page->toArray());
             $form['menu']->setDefaults([
-                'title' => $this->page->menu->title
+                'title' => $this->page->menu->title,
+                'parent' => $this->page->menu->parent->id
             ]);
         }
         $form->onAdd[] = [$this->facade, 'add'];
