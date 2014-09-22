@@ -18,11 +18,6 @@ final class Presenter extends Admin\Presenter
         $this->control = $control;
     }
 
-    public function renderAdd()
-    {
-        $this['menu'][] = 'page.admin.add';
-    }
-
     public function actionEdit($id)
     {
         $this->page = $this->repository->getById($id);
