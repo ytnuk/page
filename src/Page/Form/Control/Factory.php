@@ -2,7 +2,6 @@
 
 namespace WebEdit\Page\Form\Control;
 
-use WebEdit\Page;
 use WebEdit\Page\Form;
 
 interface Factory

@@ -28,7 +28,7 @@ final class Presenter extends Front\Presenter
 
     public function renderView()
     {
-        $this['menu']->setMenu($this->page->menu);
+        $this['menu']->setActive($this->page->menu);
     }
 
     protected function createComponentPage()
