@@ -15,7 +15,6 @@ final class Extension extends Module\Extension implements Application\Provider, 
     {
         return [
             'services' => [
-                Page\Facade::class,
                 [
                     'class' => Page\Control\Factory::class,
                     'parameters' => ['page']
