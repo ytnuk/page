@@ -3,6 +3,10 @@ admin:
     add: Přidat stránku
     edit: Upravit stránku
 form:
-    group: Stránka
+    container:
+        group: Stránka
+entity:
+    id:
+        label: ID
     content:
         label: Obsah

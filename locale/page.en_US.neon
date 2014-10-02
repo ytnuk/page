@@ -3,6 +3,10 @@ admin:
     add: Add page
     edit: Edit page
 form:
-    group: Page
+    container:
+        group: Page
+entity:
+    id:
+        label: ID
     content:
         label: Content
