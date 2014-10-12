@@ -15,6 +15,11 @@ final class Container extends Database\Form\Container
         return $entity;
     }
 
+    protected function addPropertyContent($property)
+    {
+        return $this->addTextArea($property->name, $this->formatPropertyLabel($property));
+    }
+
     protected function attached($form)
     {
         parent::attached($form);
