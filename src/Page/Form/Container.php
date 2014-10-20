@@ -10,7 +10,7 @@ final class Container extends Database\Form\Container
     public function setEntityValues($values)
     {
         $entity = parent::setEntityValues($values);
-        $entity->menu->link = ':Page:Presenter:view';
+        $entity->menu->link = ':Page:Front:Presenter:view';
         $entity->menu->linkId = $this->repository->persist($entity)->getId();
         return $entity;
     }

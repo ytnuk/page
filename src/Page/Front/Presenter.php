@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEdit\Page;
+namespace WebEdit\Page\Front;
 
 use WebEdit\Front;
 use WebEdit\Page;

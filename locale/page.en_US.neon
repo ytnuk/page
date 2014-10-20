@@ -4,7 +4,8 @@ admin:
         action:
             add: Add page
             edit: Edit page
-module: Page
+front:
+    module: Page
 form:
     container:
         group: Page
