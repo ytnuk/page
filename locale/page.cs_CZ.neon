@@ -4,8 +4,7 @@ admin:
         action:
             add: Přidat stránku
             edit: Upravit stránku
-presenter:
-    module: Stránka
+module: Stránka
 form:
     container:
         group: Stránka
