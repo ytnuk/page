@@ -31,7 +31,7 @@ final class Presenter extends Admin\Presenter
 
     public function renderEdit()
     {
-        $this['menu'][] = 'page.admin.edit';
+        $this['menu'][] = 'page.admin.presenter.action.edit';
     }
 
     protected function createComponentPage()

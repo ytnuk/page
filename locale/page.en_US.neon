@@ -1,7 +1,11 @@
 admin:
-    view: Pages
-    add: Add page
-    edit: Edit page
+    presenter:
+        module: Pages
+        action:
+            add: Add page
+            edit: Edit page
+presenter:
+    module: Page
 form:
     container:
         group: Page
