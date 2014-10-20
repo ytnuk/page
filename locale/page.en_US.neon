@@ -1,6 +1,6 @@
 admin:
+    module: Pages
     presenter:
-        module: Pages
         action:
             add: Add page
             edit: Edit page
