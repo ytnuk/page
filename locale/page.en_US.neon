@@ -1,5 +1,5 @@
+module: Pages
 admin:
-    module: Pages
     presenter:
         action:
             add: Add page

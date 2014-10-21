@@ -1,5 +1,5 @@
+module: Stránky
 admin:
-    module: Stránky
     presenter:
         action:
             add: Přidat stránku
