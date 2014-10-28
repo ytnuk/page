@@ -7,8 +7,8 @@ use WebEdit\Page;
 interface Factory
 {
 
-    /**
-     * @return Page\Control
-     */
-    public function create($page);
+	/**
+	 * @return Page\Control
+	 */
+	public function create($page);
 }
