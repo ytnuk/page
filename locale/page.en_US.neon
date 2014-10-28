@@ -10,7 +10,6 @@ form:
     container:
         group: Page
 entity:
-    id:
-        label: ID
     content:
         label: Content
+        placeholder: Fill content of this page

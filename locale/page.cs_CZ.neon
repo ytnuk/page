@@ -10,7 +10,6 @@ form:
     container:
         group: Stránka
 entity:
-    id:
-        label: ID
     content:
         label: Obsah
+        placeholder: Vyplňte obsah této stránky

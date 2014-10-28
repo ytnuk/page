@@ -12,13 +12,11 @@ final class Presenter extends Admin\Presenter
     private $repository;
     private $control;
     private $page;
-    private $databaseGridControl;
 
-    public function __construct(Page\Repository $repository, Page\Control\Factory $control, Database\Grid\Control\Factory $databaseGridControl)
+    public function __construct(Page\Repository $repository, Page\Control\Factory $control)
     {
         $this->repository = $repository;
         $this->control = $control;
-        $this->databaseGridControl = $databaseGridControl;
     }
 
     public function actionEdit($id)
@@ -37,11 +35,6 @@ final class Presenter extends Admin\Presenter
     protected function createComponentPage()
     {
         return $this->control->create($this->page);
-    }
-
-    protected function createComponentDatabaseGrid()
-    {
-        return $this->databaseGridControl->create($this->repository);
     }
 
 }
