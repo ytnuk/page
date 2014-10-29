@@ -3,11 +3,21 @@
 namespace WebEdit\Page\Form;
 
 use WebEdit\Database;
+use WebEdit\Form;
 
+/**
+ * Class Container
+ *
+ * @package WebEdit\Page
+ */
 final class Container extends Database\Form\Container
 {
 
-	public function setEntityValues($values)
+	/**
+	 * @param array $values
+	 * @return Database\Entity
+	 */
+	public function setEntityValues(array $values)
 	{
 		$entity = parent::setEntityValues($values);
 		$entity->menu->link = ':Page:Front:Presenter:view';
@@ -16,11 +26,18 @@ final class Container extends Database\Form\Container
 		return $entity;
 	}
 
+	/**
+	 * @param $property
+	 * @return \Nette\Forms\Controls\TextArea
+	 */
 	protected function addPropertyContent($property)
 	{
 		return $this->addTextArea($property->name, $this->formatPropertyLabel($property));
 	}
 
+	/**
+	 * @param $form
+	 */
 	protected function attached($form)
 	{
 		parent::attached($form);
