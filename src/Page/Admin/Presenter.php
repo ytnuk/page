@@ -22,7 +22,7 @@ final class Presenter extends Admin\Presenter
 	public function actionEdit($id)
 	{
 		$this->page = $this->repository->getById($id);
-		if (!$this->page) {
+		if ( ! $this->page) {
 			$this->error();
 		}
 	}
@@ -36,5 +36,4 @@ final class Presenter extends Admin\Presenter
 	{
 		return $this->control->create($this->page);
 	}
-
 }

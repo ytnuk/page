@@ -21,7 +21,7 @@ final class Presenter extends Front\Presenter
 	public function actionView($id)
 	{
 		$this->page = $this->repository->getById($id);
-		if (!$this->page) {
+		if ( ! $this->page) {
 			$this->error();
 		}
 	}
@@ -35,5 +35,4 @@ final class Presenter extends Front\Presenter
 	{
 		return $this->control->create($this->page);
 	}
-
 }

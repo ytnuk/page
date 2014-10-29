@@ -20,7 +20,6 @@ final class Control extends Form\Control
 
 	protected function createComponentForm()
 	{
-		return $this->form->create($this->page ?: new Page\Entity);
+		return $this->form->create($this->page ? : new Page\Entity);
 	}
-
 }

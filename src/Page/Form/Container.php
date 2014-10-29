@@ -12,6 +12,7 @@ final class Container extends Database\Form\Container
 		$entity = parent::setEntityValues($values);
 		$entity->menu->link = ':Page:Front:Presenter:view';
 		$entity->menu->linkId = $this->repository->persist($entity)->getId();
+
 		return $entity;
 	}
 
@@ -26,5 +27,4 @@ final class Container extends Database\Form\Container
 		unset($this['menu']['link']);
 		unset($this['menu']['linkId']);
 	}
-
 }

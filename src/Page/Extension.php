@@ -13,27 +13,11 @@ final class Extension extends Module\Extension implements Application\Provider, 
 
 	public function getApplicationResources()
 	{
-		return [
-			'services' => [
-				[
-					'class' => Page\Control\Factory::class,
-					'parameters' => ['page']
-				],
-				[
-					'class' => Page\Form\Control\Factory::class,
-					'parameters' => ['page']
-				]
-			]
-		];
+		return ['services' => [['class' => Page\Control\Factory::class, 'parameters' => ['page']], ['class' => Page\Form\Control\Factory::class, 'parameters' => ['page']]]];
 	}
 
 	public function getDatabaseResources()
 	{
-		return [
-			'repositories' => [
-				Page\Repository::class
-			]
-		];
+		return ['repositories' => [Page\Repository::class]];
 	}
-
 }

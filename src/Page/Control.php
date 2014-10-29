@@ -36,5 +36,4 @@ final class Control extends Application\Control
 	{
 		return $this->gridControl->create($this->repository);
 	}
-
 }
