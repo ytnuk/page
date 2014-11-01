@@ -2,33 +2,46 @@
 
 namespace WebEdit\Page;
 
-use WebEdit\Application;
-use WebEdit\Database;
-use WebEdit\Module;
+use Kdyby\Translation;
+use Nette\DI;
+use WebEdit\Config;
+use WebEdit\Orm;
 use WebEdit\Page;
-use WebEdit\Translation;
 
 /**
  * Class Extension
  *
  * @package WebEdit\Page
  */
-final class Extension extends Module\Extension implements Application\Provider, Database\Provider, Translation\Provider
+final class Extension extends DI\CompilerExtension implements Config\Provider
 {
 
 	/**
 	 * @return array
 	 */
-	public function getApplicationResources()
+	public function getConfigResources()
 	{
-		return ['services' => [['class' => Page\Control\Factory::class, 'parameters' => ['page']], ['class' => Page\Form\Control\Factory::class, 'parameters' => ['page']]]];
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getDatabaseResources()
-	{
-		return ['repositories' => [Page\Repository::class]];
+		return [
+			Orm\Extension::class => [
+				'repositories' => [$this->prefix('repository') => Page\Repository::class]
+			],
+			Translation\DI\TranslationExtension::class => [
+				'dirs' => [
+					__DIR__ . '/../../locale'
+				]
+			],
+			'services' => [
+				[
+					'implement' => Page\Control\Factory::class,
+					'parameters' => ['page'],
+					'arguments' => ['%page%']
+				],
+				[
+					'implement' => Page\Form\Control\Factory::class,
+					'parameters' => ['page'],
+					'arguments' => ['%page%']
+				]
+			]
+		];
 	}
 }
