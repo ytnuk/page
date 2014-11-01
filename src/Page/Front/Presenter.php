@@ -17,10 +17,12 @@ final class Presenter extends Front\Presenter
 	 * @var Page\Repository
 	 */
 	private $repository;
+
 	/**
 	 * @var Page\Control\Factory
 	 */
 	private $control;
+
 	/**
 	 * @var Page\Entity
 	 */
@@ -38,6 +40,7 @@ final class Presenter extends Front\Presenter
 
 	/**
 	 * @param int $id
+	 *
 	 * @throws \Nette\Application\BadRequestException
 	 */
 	public function actionView($id)

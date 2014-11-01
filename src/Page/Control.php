@@ -17,14 +17,17 @@ final class Control extends Application\Control
 	 * @var Entity
 	 */
 	private $page;
+
 	/**
 	 * @var Form\Control\Factory
 	 */
 	private $formControl;
+
 	/**
 	 * @var Database\Grid\Control\Factory
 	 */
 	private $gridControl;
+
 	/**
 	 * @var Repository
 	 */

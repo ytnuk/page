@@ -14,6 +14,7 @@ interface Factory
 
 	/**
 	 * @param Page\Entity $page
+	 *
 	 * @return Page\Control
 	 */
 	public function create($page);

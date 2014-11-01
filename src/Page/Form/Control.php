@@ -18,6 +18,7 @@ final class Control extends Form\Control
 	 * @var Page\Entity
 	 */
 	private $page;
+
 	/**
 	 * @var Database\Form\Factory
 	 */

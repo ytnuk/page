@@ -15,6 +15,7 @@ final class Container extends Database\Form\Container
 
 	/**
 	 * @param array $values
+	 *
 	 * @return Database\Entity
 	 */
 	public function setEntityValues(array $values)
@@ -29,6 +30,7 @@ final class Container extends Database\Form\Container
 
 	/**
 	 * @param $property
+	 *
 	 * @return \Nette\Forms\Controls\TextArea
 	 */
 	protected function addPropertyContent($property)
