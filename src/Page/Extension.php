@@ -6,7 +6,6 @@ use Kdyby\Translation;
 use Nette\DI;
 use WebEdit\Config;
 use WebEdit\Orm;
-use WebEdit\Page;
 
 /**
  * Class Extension
@@ -23,7 +22,9 @@ final class Extension extends DI\CompilerExtension implements Config\Provider
 	{
 		return [
 			Orm\Extension::class => [
-				'repositories' => [$this->prefix('repository') => Page\Repository::class]
+				'repositories' => [
+					$this->prefix('repository') => Repository::class
+				]
 			],
 			Translation\DI\TranslationExtension::class => [
 				'dirs' => [
@@ -31,13 +32,13 @@ final class Extension extends DI\CompilerExtension implements Config\Provider
 				]
 			],
 			'services' => [
-				[
-					'implement' => Page\Control\Factory::class,
+				$this->prefix('control') => [
+					'implement' => Control\Factory::class,
 					'parameters' => ['page'],
 					'arguments' => ['%page%']
 				],
-				[
-					'implement' => Page\Form\Control\Factory::class,
+				$this->prefix('formControl') => [
+					'implement' => Form\Control\Factory::class,
 					'parameters' => ['page'],
 					'arguments' => ['%page%']
 				]
