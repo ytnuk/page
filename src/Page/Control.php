@@ -3,7 +3,7 @@
 namespace WebEdit\Page;
 
 use WebEdit\Application;
-use WebEdit\Database;
+use WebEdit\Orm;
 
 /**
  * Class Control
@@ -24,7 +24,7 @@ final class Control extends Application\Control
 	private $formControl;
 
 	/**
-	 * @var Database\Grid\Control\Factory
+	 * @var Orm\Grid\Control\Factory
 	 */
 	private $gridControl;
 
@@ -36,10 +36,10 @@ final class Control extends Application\Control
 	/**
 	 * @param Entity|NULL $page
 	 * @param Form\Control\Factory $formControl
-	 * @param Database\Grid\Control\Factory $gridControl
+	 * @param Orm\Grid\Control\Factory $gridControl
 	 * @param Repository $repository
 	 */
-	public function __construct(Entity $page, Form\Control\Factory $formControl, Database\Grid\Control\Factory $gridControl, Repository $repository)
+	public function __construct(Entity $page, Form\Control\Factory $formControl, Orm\Grid\Control\Factory $gridControl, Repository $repository)
 	{
 		$this->page = $page;
 		$this->formControl = $formControl;
@@ -61,7 +61,7 @@ final class Control extends Application\Control
 	}
 
 	/**
-	 * @return Database\Grid\Control
+	 * @return Orm\Grid\Control
 	 */
 	protected function createComponentGrid()
 	{

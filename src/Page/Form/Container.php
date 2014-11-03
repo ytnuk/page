@@ -2,21 +2,21 @@
 
 namespace WebEdit\Page\Form;
 
-use WebEdit\Database;
 use WebEdit\Form;
+use WebEdit\Orm;
 
 /**
  * Class Container
  *
  * @package WebEdit\Page
  */
-final class Container extends Database\Form\Container
+final class Container extends Orm\Form\Container
 {
 
 	/**
 	 * @param array $values
 	 *
-	 * @return Database\Entity
+	 * @return Orm\Entity
 	 */
 	public function setEntityValues(array $values)
 	{

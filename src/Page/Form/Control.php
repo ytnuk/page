@@ -2,8 +2,8 @@
 
 namespace WebEdit\Page\Form;
 
-use WebEdit\Database;
 use WebEdit\Form;
+use WebEdit\Orm;
 use WebEdit\Page;
 
 /**
@@ -20,22 +20,22 @@ final class Control extends Form\Control
 	private $page;
 
 	/**
-	 * @var Database\Form\Factory
+	 * @var Orm\Form\Factory
 	 */
 	private $form;
 
 	/**
 	 * @param Page\Entity $page
-	 * @param Database\Form\Factory $form
+	 * @param Orm\Form\Factory $form
 	 */
-	public function __construct(Page\Entity $page, Database\Form\Factory $form)
+	public function __construct(Page\Entity $page, Orm\Form\Factory $form)
 	{
 		$this->page = $page;
 		$this->form = $form;
 	}
 
 	/**
-	 * @return Database\Form
+	 * @return Orm\Form
 	 */
 	protected function createComponentForm()
 	{
