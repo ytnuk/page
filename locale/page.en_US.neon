@@ -1,15 +1,16 @@
-module: Pages
 admin:
-    presenter:
-        action:
-            add: Add page
-            edit: Edit page
+	presenter:
+		module: Pages administration
+		action:
+			add: Add page
+			edit: Edit page
 front:
-    module: Page
+	presenter:
+		module: Page
 form:
-    container:
-        group: Page
+	container:
+		group: Page
 entity:
-    content:
-        label: Content
-        placeholder: Fill content of this page
+	content:
+		label: Content
+		placeholder: Fill content of this page
