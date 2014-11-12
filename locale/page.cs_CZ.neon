@@ -1,12 +1,8 @@
-admin:
-	presenter:
-		module: Administrace stránek
-		action:
-			add: Přidat stránku
-			edit: Upravit stránku
-front:
-	presenter:
-		module: Stránka
+presenter:
+	module: Stránky
+	action:
+		add: Přidat stránku
+		edit: Upravit stránku
 form:
 	container:
 		group: Stránka

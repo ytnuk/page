@@ -1,12 +1,8 @@
-admin:
-	presenter:
-		module: Pages administration
-		action:
-			add: Add page
-			edit: Edit page
-front:
-	presenter:
-		module: Page
+presenter:
+	module: Pages
+	action:
+		add: Add page
+		edit: Edit page
 form:
 	container:
 		group: Page

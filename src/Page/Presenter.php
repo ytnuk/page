@@ -1,8 +1,9 @@
 <?php
 
-namespace WebEdit\Page\Front;
+namespace WebEdit\Page;
 
-use WebEdit\Front;
+use WebEdit\Admin;
+use WebEdit\Database;
 use WebEdit\Page;
 
 /**
@@ -10,7 +11,7 @@ use WebEdit\Page;
  *
  * @package WebEdit\Page
  */
-final class Presenter extends Front\Presenter
+final class Presenter extends Admin\Presenter
 {
 
 	/**
@@ -61,6 +62,6 @@ final class Presenter extends Front\Presenter
 	 */
 	protected function createComponentPage()
 	{
-		return $this->control->create($this->page);
+		return $this->control->create($this->page ? : new Page\Entity);
 	}
 }

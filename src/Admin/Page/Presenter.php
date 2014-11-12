@@ -1,6 +1,6 @@
 <?php
 
-namespace WebEdit\Page\Admin;
+namespace WebEdit\Admin\Page;
 
 use WebEdit\Admin;
 use WebEdit\Database;
@@ -44,7 +44,7 @@ final class Presenter extends Admin\Presenter
 	 *
 	 * @throws \Nette\Application\BadRequestException
 	 */
-	public function actionEdit($id)
+	public function actionView($id)
 	{
 		$this->page = $this->repository->getById($id);
 		if ( ! $this->page) {
@@ -52,9 +52,9 @@ final class Presenter extends Admin\Presenter
 		}
 	}
 
-	public function renderEdit()
+	public function renderView()
 	{
-		$this['menu'][] = 'page.admin.presenter.action.edit';
+		$this['menu']->setActive($this->page->menu);
 	}
 
 	/**

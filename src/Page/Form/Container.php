@@ -21,7 +21,7 @@ final class Container extends Orm\Form\Container
 	public function setEntityValues(array $values)
 	{
 		$entity = parent::setEntityValues($values);
-		$entity->menu->link = ':Page:Front:Presenter:view';
+		$entity->menu->link = ':Page:Presenter:view';
 		$entity->menu->linkId = $this->repository->persist($entity)
 			->getId();
 
