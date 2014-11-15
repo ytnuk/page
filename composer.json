@@ -6,8 +6,8 @@
 		"webedit/orm": "dev-master",
 		"webedit/form": "dev-master",
 		"kdyby/translation": "dev-master",
-		"webedit/front": "dev-master",
-		"webedit/admin": "dev-master"
+		"webedit/web": "dev-master",
+		"nette/di": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {
