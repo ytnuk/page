@@ -1,8 +1,5 @@
 presenter:
-	module: Pages
-	action:
-		add: Add page
-		edit: Edit page
+	module: Page
 form:
 	container:
 		group: Page

@@ -2,7 +2,7 @@
 
 namespace WebEdit\Page;
 
-use WebEdit\Admin;
+use WebEdit;
 use WebEdit\Database;
 use WebEdit\Page;
 
@@ -11,7 +11,7 @@ use WebEdit\Page;
  *
  * @package WebEdit\Page
  */
-final class Presenter extends Admin\Presenter
+class Presenter extends WebEdit\Web\Presenter
 {
 
 	/**
