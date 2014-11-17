@@ -3,8 +3,6 @@
 namespace WebEdit\Page;
 
 use WebEdit;
-use WebEdit\Database;
-use WebEdit\Page;
 
 /**
  * Class Presenter
@@ -15,25 +13,25 @@ class Presenter extends WebEdit\Web\Presenter
 {
 
 	/**
-	 * @var Page\Repository
+	 * @var Entity
+	 */
+	protected $page;
+
+	/**
+	 * @var Repository
 	 */
 	private $repository;
 
 	/**
-	 * @var Page\Control\Factory
+	 * @var Control\Factory
 	 */
 	private $control;
 
 	/**
-	 * @var Page\Entity
+	 * @param Repository $repository
+	 * @param Control\Factory $control
 	 */
-	private $page;
-
-	/**
-	 * @param Page\Repository $repository
-	 * @param Page\Control\Factory $control
-	 */
-	public function __construct(Page\Repository $repository, Page\Control\Factory $control)
+	public function __construct(Repository $repository, Control\Factory $control)
 	{
 		$this->repository = $repository;
 		$this->control = $control;
@@ -54,14 +52,14 @@ class Presenter extends WebEdit\Web\Presenter
 
 	public function renderView()
 	{
-		$this['menu']->setActive($this->page->menu);
+		$this['menu'][] = 'page.presenter.action.edit';
 	}
 
 	/**
-	 * @return Page\Control
+	 * @return Control
 	 */
 	protected function createComponentPage()
 	{
-		return $this->control->create($this->page ? : new Page\Entity);
+		return $this->control->create($this->page ? : new Entity);
 	}
 }

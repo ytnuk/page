@@ -2,14 +2,14 @@
 
 namespace WebEdit\Page;
 
-use WebEdit\Orm;
+use WebEdit;
 
 /**
  * Class Repository
  *
  * @package WebEdit\Page
  */
-final class Repository extends Orm\Repository
+final class Repository extends WebEdit\Orm\Repository
 {
 
 }
