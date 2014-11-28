@@ -1,15 +1,15 @@
 <?php
 
-namespace Kutny\Page;
+namespace Ytnuk\Page;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Class Presenter
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
-class Presenter extends Kutny\Web\Presenter
+class Presenter extends Ytnuk\Web\Presenter
 {
 
 	/**

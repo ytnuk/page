@@ -1,15 +1,15 @@
 <?php
 
-namespace Kutny\Page;
+namespace Ytnuk\Page;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Class Repository
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
-final class Repository extends Kutny\Orm\Repository
+final class Repository extends Ytnuk\Orm\Repository
 {
 
 }

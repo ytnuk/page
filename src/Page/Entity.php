@@ -1,14 +1,14 @@
 <?php
 
-namespace Kutny\Page;
+namespace Ytnuk\Page;
 
-use Kutny;
+use Ytnuk;
 
 /**
- * @property Kutny\Menu\Entity $menu {1:1d Kutny\Menu\Repository $page primary}
+ * @property Ytnuk\Menu\Entity $menu {1:1d Ytnuk\Menu\Repository $page primary}
  * @property string $content
  */
-final class Entity extends Kutny\Orm\Entity
+final class Entity extends Ytnuk\Orm\Entity
 {
 
 	const PROPERTY_NAME = 'menu';

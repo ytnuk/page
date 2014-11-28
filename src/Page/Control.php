@@ -1,15 +1,15 @@
 <?php
 
-namespace Kutny\Page;
+namespace Ytnuk\Page;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Class Control
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
-final class Control extends Kutny\Application\Control
+final class Control extends Ytnuk\Application\Control
 {
 
 	/**
@@ -23,7 +23,7 @@ final class Control extends Kutny\Application\Control
 	private $formControl;
 
 	/**
-	 * @var Kutny\Orm\Grid\Control\Factory
+	 * @var Ytnuk\Orm\Grid\Control\Factory
 	 */
 	private $gridControl;
 
@@ -35,10 +35,10 @@ final class Control extends Kutny\Application\Control
 	/**
 	 * @param Entity|NULL $page
 	 * @param Form\Control\Factory $formControl
-	 * @param Kutny\Orm\Grid\Control\Factory $gridControl
+	 * @param Ytnuk\Orm\Grid\Control\Factory $gridControl
 	 * @param Repository $repository
 	 */
-	public function __construct(Entity $page, Form\Control\Factory $formControl, Kutny\Orm\Grid\Control\Factory $gridControl, Repository $repository)
+	public function __construct(Entity $page, Form\Control\Factory $formControl, Ytnuk\Orm\Grid\Control\Factory $gridControl, Repository $repository)
 	{
 		$this->page = $page;
 		$this->formControl = $formControl;
@@ -60,7 +60,7 @@ final class Control extends Kutny\Application\Control
 	}
 
 	/**
-	 * @return Kutny\Orm\Grid\Control
+	 * @return Ytnuk\Orm\Grid\Control
 	 */
 	protected function createComponentGrid()
 	{

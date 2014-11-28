@@ -1,39 +1,39 @@
 <?php
 
-namespace Kutny\Page\Form;
+namespace Ytnuk\Page\Form;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Class Control
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
-final class Control extends Kutny\Form\Control
+final class Control extends Ytnuk\Form\Control
 {
 
 	/**
-	 * @var Kutny\Page\Entity
+	 * @var Ytnuk\Page\Entity
 	 */
 	private $page;
 
 	/**
-	 * @var Kutny\Orm\Form\Factory
+	 * @var Ytnuk\Orm\Form\Factory
 	 */
 	private $form;
 
 	/**
-	 * @param Kutny\Page\Entity $page
-	 * @param Kutny\Orm\Form\Factory $form
+	 * @param Ytnuk\Page\Entity $page
+	 * @param Ytnuk\Orm\Form\Factory $form
 	 */
-	public function __construct(Kutny\Page\Entity $page, Kutny\Orm\Form\Factory $form)
+	public function __construct(Ytnuk\Page\Entity $page, Ytnuk\Orm\Form\Factory $form)
 	{
 		$this->page = $page;
 		$this->form = $form;
 	}
 
 	/**
-	 * @return Kutny\Orm\Form
+	 * @return Ytnuk\Orm\Form
 	 */
 	protected function createComponentForm()
 	{

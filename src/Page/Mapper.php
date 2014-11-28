@@ -1,15 +1,15 @@
 <?php
 
-namespace Kutny\Page;
+namespace Ytnuk\Page;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Class Mapper
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
-final class Mapper extends Kutny\Orm\Mapper
+final class Mapper extends Ytnuk\Orm\Mapper
 {
 
 }

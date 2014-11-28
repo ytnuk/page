@@ -1,21 +1,21 @@
 <?php
 
-namespace Kutny\Page\Control;
+namespace Ytnuk\Page\Control;
 
-use Kutny;
+use Ytnuk;
 
 /**
  * Interface Factory
  *
- * @package Kutny\Page
+ * @package Ytnuk\Page
  */
 interface Factory
 {
 
 	/**
-	 * @param Kutny\Page\Entity $page
+	 * @param Ytnuk\Page\Entity $page
 	 *
-	 * @return Kutny\Page\Control
+	 * @return Ytnuk\Page\Control
 	 */
 	public function create($page);
 }
