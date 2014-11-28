@@ -1,14 +1,14 @@
 <?php
 
-namespace WebEdit\Page;
+namespace Kutny\Page;
 
-use WebEdit;
+use Kutny;
 
 /**
- * @property WebEdit\Menu\Entity $menu {1:1d WebEdit\Menu\Repository $page primary}
+ * @property Kutny\Menu\Entity $menu {1:1d Kutny\Menu\Repository $page primary}
  * @property string $content
  */
-final class Entity extends WebEdit\Orm\Entity
+final class Entity extends Kutny\Orm\Entity
 {
 
 	const PROPERTY_NAME = 'menu';

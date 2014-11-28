@@ -1,21 +1,21 @@
 <?php
 
-namespace WebEdit\Page\Form;
+namespace Kutny\Page\Form;
 
-use WebEdit;
+use Kutny;
 
 /**
  * Class Container
  *
- * @package WebEdit\Page
+ * @package Kutny\Page
  */
-final class Container extends WebEdit\Orm\Form\Container
+final class Container extends Kutny\Orm\Form\Container
 {
 
 	/**
 	 * @param array $values
 	 *
-	 * @return WebEdit\Orm\Entity
+	 * @return Kutny\Orm\Entity
 	 */
 	public function setEntityValues(array $values)
 	{

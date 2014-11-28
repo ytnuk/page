@@ -1,15 +1,15 @@
 <?php
 
-namespace WebEdit\Page;
+namespace Kutny\Page;
 
-use WebEdit;
+use Kutny;
 
 /**
  * Class Control
  *
- * @package WebEdit\Page
+ * @package Kutny\Page
  */
-final class Control extends WebEdit\Application\Control
+final class Control extends Kutny\Application\Control
 {
 
 	/**
@@ -23,7 +23,7 @@ final class Control extends WebEdit\Application\Control
 	private $formControl;
 
 	/**
-	 * @var WebEdit\Orm\Grid\Control\Factory
+	 * @var Kutny\Orm\Grid\Control\Factory
 	 */
 	private $gridControl;
 
@@ -35,10 +35,10 @@ final class Control extends WebEdit\Application\Control
 	/**
 	 * @param Entity|NULL $page
 	 * @param Form\Control\Factory $formControl
-	 * @param WebEdit\Orm\Grid\Control\Factory $gridControl
+	 * @param Kutny\Orm\Grid\Control\Factory $gridControl
 	 * @param Repository $repository
 	 */
-	public function __construct(Entity $page, Form\Control\Factory $formControl, WebEdit\Orm\Grid\Control\Factory $gridControl, Repository $repository)
+	public function __construct(Entity $page, Form\Control\Factory $formControl, Kutny\Orm\Grid\Control\Factory $gridControl, Repository $repository)
 	{
 		$this->page = $page;
 		$this->formControl = $formControl;
@@ -60,7 +60,7 @@ final class Control extends WebEdit\Application\Control
 	}
 
 	/**
-	 * @return WebEdit\Orm\Grid\Control
+	 * @return Kutny\Orm\Grid\Control
 	 */
 	protected function createComponentGrid()
 	{

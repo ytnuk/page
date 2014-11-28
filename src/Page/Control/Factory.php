@@ -1,21 +1,21 @@
 <?php
 
-namespace WebEdit\Page\Control;
+namespace Kutny\Page\Control;
 
-use WebEdit;
+use Kutny;
 
 /**
  * Interface Factory
  *
- * @package WebEdit\Page
+ * @package Kutny\Page
  */
 interface Factory
 {
 
 	/**
-	 * @param WebEdit\Page\Entity $page
+	 * @param Kutny\Page\Entity $page
 	 *
-	 * @return WebEdit\Page\Control
+	 * @return Kutny\Page\Control
 	 */
 	public function create($page);
 }

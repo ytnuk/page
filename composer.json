@@ -1,17 +1,17 @@
 {
-	"name": "webedit/page",
+	"name": "kutny/page",
 	"require": {
-		"webedit/application": "dev-master",
-		"webedit/menu": "dev-master",
-		"webedit/orm": "dev-master",
-		"webedit/form": "dev-master",
+		"kutny/application": "dev-master",
+		"kutny/menu": "dev-master",
+		"kutny/orm": "dev-master",
+		"kutny/form": "dev-master",
 		"kdyby/translation": "dev-master",
-		"webedit/web": "dev-master",
+		"kutny/web": "dev-master",
 		"nette/di": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {
-			"WebEdit\\": "src/"
+			"Kutny\\": "src/"
 		}
 	}
 }

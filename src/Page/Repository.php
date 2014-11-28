@@ -1,15 +1,15 @@
 <?php
 
-namespace WebEdit\Page;
+namespace Kutny\Page;
 
-use WebEdit;
+use Kutny;
 
 /**
  * Class Repository
  *
- * @package WebEdit\Page
+ * @package Kutny\Page
  */
-final class Repository extends WebEdit\Orm\Repository
+final class Repository extends Kutny\Orm\Repository
 {
 
 }
