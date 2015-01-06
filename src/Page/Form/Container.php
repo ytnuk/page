@@ -21,8 +21,7 @@ final class Container extends Ytnuk\Orm\Form\Container
 	{
 		$entity = parent::setEntityValues($values);
 		$entity->menu->link = ':Page:Presenter:view';
-		$entity->menu->linkId = $this->repository->persist($entity)
-			->getId();
+		$entity->menu->linkId = $this->repository->persist($entity)->id;
 
 		return $entity;
 	}
