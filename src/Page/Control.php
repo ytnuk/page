@@ -33,7 +33,7 @@ final class Control extends Ytnuk\Application\Control
 	private $repository;
 
 	/**
-	 * @param Entity|NULL $page
+	 * @param Entity $page
 	 * @param Form\Control\Factory $formControl
 	 * @param Ytnuk\Orm\Grid\Control\Factory $gridControl
 	 * @param Repository $repository
@@ -54,7 +54,7 @@ final class Control extends Ytnuk\Application\Control
 	/**
 	 * @return Form\Control
 	 */
-	protected function createComponentForm()
+	protected function createComponentYtnukFormControl()
 	{
 		return $this->formControl->create($this->page);
 	}
@@ -62,7 +62,7 @@ final class Control extends Ytnuk\Application\Control
 	/**
 	 * @return Ytnuk\Orm\Grid\Control
 	 */
-	protected function createComponentGrid()
+	protected function createComponentYtnukGridControl()
 	{
 		return $this->gridControl->create($this->repository);
 	}

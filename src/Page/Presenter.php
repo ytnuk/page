@@ -52,13 +52,13 @@ class Presenter extends Ytnuk\Web\Presenter
 
 	public function renderView()
 	{
-		$this['menu'][] = 'page.presenter.action.edit';
+		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
 	}
 
 	/**
 	 * @return Control
 	 */
-	protected function createComponentPage()
+	protected function createComponentYtnukPageControl()
 	{
 		return $this->control->create($this->page ? : new Entity);
 	}
