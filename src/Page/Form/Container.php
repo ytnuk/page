@@ -17,11 +17,16 @@ final class Container extends Ytnuk\Orm\Form\Container
 	 *
 	 * @return Ytnuk\Orm\Entity
 	 */
-	public function setEntityValues(array $values)
+	public function setEntityValues(array $values) //TODO: need to check after Link module completed
 	{
 		$entity = parent::setEntityValues($values);
-		$entity->menu->link = ':Page:Presenter:view';
-		$entity->menu->linkId = $this->repository->persist($entity)->id;
+		$link = new Ytnuk\Link\Entity;
+		$link->destination = ':Page:Presenter:view';
+		$parameter = new Ytnuk\Link\Parameter\Entity;
+		$parameter->key = 'id';
+		$parameter->value = $this->repository->persist($entity)->id;
+		$link->parameters[] = $parameter;
+		$entity->menu->link = $link;
 
 		return $entity;
 	}
