@@ -40,7 +40,8 @@ final class Extension extends Nette\DI\CompilerExtension implements Ytnuk\Config
 					'implement' => Form\Control\Factory::class,
 					'parameters' => ['page'],
 					'arguments' => ['%page%']
-				]
+				],
+				$this->prefix('presenter') => Presenter::class
 			]
 		];
 	}
