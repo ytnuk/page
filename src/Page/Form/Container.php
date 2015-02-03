@@ -16,8 +16,6 @@ final class Container extends Ytnuk\Orm\Form\Container
 	public function setEntityValues(Nette\Utils\ArrayHash $values) //TODO: need to check after Link module completed
 	{
 		$entity = parent::setEntityValues($values); //TODO: too many nested function on PagePresenter
-		dump($entity);
-		exit;
 		//		$link = new Ytnuk\Link\Entity;
 		//		$link->destination = ':Page:Presenter:view';
 		//		$parameter = new Ytnuk\Link\Parameter\Entity;
