@@ -17,5 +17,5 @@ interface Factory
 	 *
 	 * @return Ytnuk\Page\Form\Control
 	 */
-	public function create($page);
+	public function create(Ytnuk\Page\Entity $page);
 }

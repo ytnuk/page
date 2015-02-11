@@ -32,11 +32,7 @@ final class Extension extends Nette\DI\CompilerExtension implements Ytnuk\Config
 			],
 			'services' => [
 				Control\Factory::class,
-				$this->prefix('formControl') => [ //TODO:
-					'implement' => Form\Control\Factory::class,
-					'parameters' => ['page'],
-					'arguments' => ['%page%']
-				]
+				Form\Control\Factory::class,
 			]
 		];
 	}
