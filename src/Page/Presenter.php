@@ -52,9 +52,9 @@ class Presenter extends Ytnuk\Web\Presenter
 
 	public function renderView()
 	{
-		//TODO: use renderView in administration to preview page
-		//$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = $this->page->menu;
-		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
+		if ($this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class]->getActive() !== $this->page->menu) {
+			$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.view';
+		}
 		//TODO: move editing to actionEdit
 	}
 

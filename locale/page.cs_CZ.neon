@@ -3,6 +3,7 @@ presenter:
 	action:
 		add: Přidat stránku
 		edit: Upravit stránku
+		view: Zobrazit stránku
 form:
 	container:
 		group: Stránka

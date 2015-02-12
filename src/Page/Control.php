@@ -48,7 +48,8 @@ final class Control extends Ytnuk\Application\Control
 
 	protected function startup()
 	{
-		$this->template->page = $this->page;
+		$this->getTemplate()
+			->add('page', $this->page);
 	}
 
 	/**

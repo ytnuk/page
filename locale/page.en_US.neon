@@ -3,6 +3,7 @@ presenter:
 	action:
 		add: Add page
 		edit: Edit page
+		view: View page
 form:
 	container:
 		group: Page
