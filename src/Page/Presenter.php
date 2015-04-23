@@ -50,12 +50,22 @@ class Presenter extends Ytnuk\Web\Presenter
 		}
 	}
 
-	public function renderView()
+	/**
+	 * @param int $id
+	 *
+	 * @throws \Nette\Application\BadRequestException
+	 */
+	public function actionEdit($id)
 	{
-		if ($this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class]->getActive() !== $this->page->menu) {
-			$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.view';
+		$this->page = $this->repository->getById($id);
+		if ( ! $this->page) {
+			$this->error();
 		}
-		//TODO: move editing to actionEdit
+	}
+
+	public function renderEdit()
+	{
+		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
 	}
 
 	/**
