@@ -68,6 +68,12 @@ class Presenter extends Ytnuk\Web\Presenter
 		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
 	}
 
+	public function redrawControl($snippet = NULL, $redraw = TRUE)
+	{
+		parent::redrawControl($snippet, $redraw);
+		$this[Control::class]->redrawControl($snippet, $redraw);
+	}
+
 	/**
 	 * @return Control
 	 */
