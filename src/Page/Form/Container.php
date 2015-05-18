@@ -13,19 +13,6 @@ use Ytnuk;
 final class Container extends Ytnuk\Orm\Form\Container
 {
 
-	public function setEntityValues(Nette\Utils\ArrayHash $values) //TODO: need to check after Link module completed
-	{
-		$entity = parent::setEntityValues($values);
-		//		$link = new Ytnuk\Link\Entity;
-		//		$link->destination = ':Page:Presenter:view';
-		//		$parameter = new Ytnuk\Link\Parameter\Entity;
-		//		$parameter->key = 'id';
-		//		$parameter->value = $this->repository->persist($entity)->id;
-		//		$link->parameters[] = $parameter;
-		//		$entity->menu->link = $link;
-		return $entity;
-	}
-
 	/**
 	 * @param $property
 	 *
