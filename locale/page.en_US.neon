@@ -7,7 +7,7 @@ presenter:
 form:
 	container:
 		group: Page
-entity:
-	content:
-		label: Content
-		placeholder: Fill content of this page
+		property:
+			content:
+				label: Content
+				placeholder: Fill content of this page

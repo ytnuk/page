@@ -7,7 +7,7 @@ presenter:
 form:
 	container:
 		group: Stránka
-entity:
-	content:
-		label: Obsah
-		placeholder: Vyplňte obsah této stránky
+		property:
+			content:
+				label: Obsah
+				placeholder: Vyplňte obsah této stránky
