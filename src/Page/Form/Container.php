@@ -13,6 +13,9 @@ use Ytnuk;
 final class Container extends Ytnuk\Orm\Form\Container
 {
 
+	/**
+	 * @inheritdoc
+	 */
 	public function setValues($values, $erase = FALSE)
 	{
 		$container = parent::setValues($values, $erase);
@@ -29,7 +32,7 @@ final class Container extends Ytnuk\Orm\Form\Container
 	}
 
 	/**
-	 * @param Ytnuk\Form $form
+	 * @inheritdoc
 	 */
 	protected function attached($form)
 	{

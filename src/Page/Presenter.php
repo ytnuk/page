@@ -15,7 +15,7 @@ class Presenter extends Ytnuk\Web\Presenter
 	/**
 	 * @var Entity
 	 */
-	protected $page;
+	private $page;
 
 	/**
 	 * @var Repository
@@ -68,6 +68,9 @@ class Presenter extends Ytnuk\Web\Presenter
 		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
 	}
 
+	/**
+	 * @inheritdoc
+	 */
 	public function redrawControl($snippet = NULL, $redraw = TRUE)
 	{
 		parent::redrawControl($snippet, $redraw);
