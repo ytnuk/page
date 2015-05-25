@@ -74,7 +74,9 @@ class Presenter extends Ytnuk\Web\Presenter
 	public function redrawControl($snippet = NULL, $redraw = TRUE)
 	{
 		parent::redrawControl($snippet, $redraw);
-		$this[Control::class]->redrawControl($snippet, $redraw);
+		if ($this->page) {
+			$this[Control::class]->redrawControl($snippet, $redraw);
+		}
 	}
 
 	/**

@@ -18,9 +18,9 @@ final class Container extends Ytnuk\Orm\Form\Container
 	 */
 	public function setValues($values, $erase = FALSE)
 	{
-		$container = parent::setValues($values, $erase);
-		$link = $this->entity->menu->link;
+		$link = $this['menu']->getEntity()->link;
 		$link->destination = ':Page:Presenter:view';
+		$container = parent::setValues($values, $erase);
 		if ( ! $link->parameters->get()->getBy(['key' => 'id'])) {
 			$linkParameter = new Ytnuk\Link\Parameter\Entity;
 			$linkParameter->key = 'id';
@@ -38,15 +38,5 @@ final class Container extends Ytnuk\Orm\Form\Container
 	{
 		parent::attached($form);;
 		unset($this['menu']['link']);
-	}
-
-	/**
-	 * @param $property
-	 *
-	 * @return \Nette\Forms\Controls\TextArea
-	 */
-	protected function addPropertyContent($property)
-	{
-		return $this->addTextArea($property->name, $this->formatPropertyLabel($property));
 	}
 }
