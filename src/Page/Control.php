@@ -52,6 +52,20 @@ final class Control extends Ytnuk\Application\Control
 	}
 
 	/**
+	 * @inheritdoc
+	 */
+	protected function getViews()
+	{
+		return [
+			'view' => function () {
+				return [
+					$this->page->id
+				];
+			}
+		] + parent::getViews();
+	}
+
+	/**
 	 * @return Form\Control
 	 */
 	protected function createComponentYtnukFormControl()
