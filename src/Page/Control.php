@@ -59,7 +59,7 @@ final class Control extends Ytnuk\Application\Control
 		return [
 			'view' => function () {
 				return [
-					$this->page->id
+					$this->page
 				];
 			}
 		] + parent::getViews();
