@@ -33,6 +33,7 @@ class Presenter extends Ytnuk\Web\Presenter
 	 */
 	public function __construct(Repository $repository, Control\Factory $control)
 	{
+		parent::__construct();
 		$this->repository = $repository;
 		$this->control = $control;
 	}
