@@ -24,7 +24,7 @@ final class Container extends Ytnuk\Orm\Form\Container
 		if ( ! $link->parameters->get()->getBy(['key' => 'id'])) {
 			$linkParameter = new Ytnuk\Link\Parameter\Entity;
 			$linkParameter->key = 'id';
-			$linkParameter->value = $this->entity->getPersistedId() ? : $this->repository->persist($this->entity)->getPersistedId();
+			$linkParameter->value = $this->getEntity()->getPersistedId() ? : $this->getRepository()->persist($this->getEntity())->getPersistedId();
 			$link->parameters->add($linkParameter);
 		}
 
