@@ -2,7 +2,6 @@
 
 namespace Ytnuk\Page;
 
-use Nette;
 use Nextras;
 use Ytnuk;
 
