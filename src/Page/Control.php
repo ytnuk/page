@@ -47,9 +47,14 @@ final class Control extends Ytnuk\Orm\Control
 		$this->repository = $repository;
 	}
 
+	/**
+	 * @return array
+	 */
 	protected function startup()
 	{
-		$this->getTemplate()->add('page', $this->page);
+		return [
+			'page' => $this->page
+		];
 	}
 
 	/**
