@@ -19,7 +19,7 @@ final class Container extends Ytnuk\Orm\Form\Container
 	public function setValues($values, $erase = FALSE)
 	{
 		$link = $this['menu']->getEntity()->link;
-		$link->destination = ':Page:Presenter:view';
+		$link->module = 'Page';
 		$container = parent::setValues($values, $erase);
 		if ( ! $link->parameters->get()->getBy(['key' => 'id'])) {
 			$linkParameter = new Ytnuk\Link\Parameter\Entity;
@@ -36,7 +36,7 @@ final class Container extends Ytnuk\Orm\Form\Container
 	 */
 	protected function attached($form)
 	{
-		parent::attached($form);;
+		parent::attached($form);
 		unset($this['menu']['link']);
 	}
 }
