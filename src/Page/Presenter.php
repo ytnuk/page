@@ -1,5 +1,4 @@
 <?php
-
 namespace Ytnuk\Page;
 
 use Ytnuk;
@@ -9,7 +8,8 @@ use Ytnuk;
  *
  * @package Ytnuk\Page
  */
-class Presenter extends Ytnuk\Web\Presenter
+class Presenter
+	extends Ytnuk\Web\Presenter
 {
 
 	/**
@@ -31,8 +31,10 @@ class Presenter extends Ytnuk\Web\Presenter
 	 * @param Repository $repository
 	 * @param Control\Factory $control
 	 */
-	public function __construct(Repository $repository, Control\Factory $control)
-	{
+	public function __construct(
+		Repository $repository,
+		Control\Factory $control
+	) {
 		parent::__construct();
 		$this->repository = $repository;
 		$this->control = $control;
@@ -72,11 +74,19 @@ class Presenter extends Ytnuk\Web\Presenter
 	/**
 	 * @inheritdoc
 	 */
-	public function redrawControl($snippet = NULL, $redraw = TRUE)
-	{
-		parent::redrawControl($snippet, $redraw);
+	public function redrawControl(
+		$snippet = NULL,
+		$redraw = TRUE
+	) {
+		parent::redrawControl(
+			$snippet,
+			$redraw
+		);
 		if ($this->page) {
-			$this[Control::class]->redrawControl($snippet, $redraw);
+			$this[Control::class]->redrawControl(
+				$snippet,
+				$redraw
+			);
 		}
 	}
 

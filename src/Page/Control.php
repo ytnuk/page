@@ -1,5 +1,4 @@
 <?php
-
 namespace Ytnuk\Page;
 
 use Ytnuk;
@@ -9,7 +8,8 @@ use Ytnuk;
  *
  * @package Ytnuk\Page
  */
-final class Control extends Ytnuk\Orm\Control
+final class Control
+	extends Ytnuk\Orm\Control
 {
 
 	/**
@@ -38,8 +38,12 @@ final class Control extends Ytnuk\Orm\Control
 	 * @param Ytnuk\Orm\Grid\Control\Factory $gridControl
 	 * @param Repository $repository
 	 */
-	public function __construct(Entity $page, Form\Control\Factory $formControl, Ytnuk\Orm\Grid\Control\Factory $gridControl, Repository $repository)
-	{
+	public function __construct(
+		Entity $page,
+		Form\Control\Factory $formControl,
+		Ytnuk\Orm\Grid\Control\Factory $gridControl,
+		Repository $repository
+	) {
 		parent::__construct($page);
 		$this->page = $page;
 		$this->formControl = $formControl;
@@ -53,7 +57,7 @@ final class Control extends Ytnuk\Orm\Control
 	protected function startup()
 	{
 		return [
-			'page' => $this->page
+			'page' => $this->page,
 		];
 	}
 
@@ -65,9 +69,9 @@ final class Control extends Ytnuk\Orm\Control
 		return [
 			'view' => function () {
 				return [
-					$this->page
+					$this->page,
 				];
-			}
+			},
 		] + parent::getViews();
 	}
 
