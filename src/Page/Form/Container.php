@@ -14,6 +14,31 @@ final class Container
 {
 
 	/**
+	 * @var Ytnuk\Page\Entity
+	 */
+	private $entity;
+
+	/**
+	 * @var Ytnuk\Page\Repository
+	 */
+	private $repository;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function __construct(
+		Ytnuk\Page\Entity $entity,
+		Ytnuk\Page\Repository $repository
+	) {
+		parent::__construct(
+			$entity,
+			$repository
+		);
+		$this->entity = $entity;
+		$this->repository = $repository;
+	}
+
+	/**
 	 * @inheritdoc
 	 */
 	protected function attached($form)
@@ -29,19 +54,18 @@ final class Container
 		$values,
 		$erase = FALSE
 	) {
-		$link = $this['menu']->getEntity()->link;
-		$link->module = 'Page';
 		$container = parent::setValues(
 			$values,
 			$erase
 		);
+		$link = $this->entity->menu->link;
+		$link->module = 'Page';
 		if ( ! $link->parameters->get()->getBy(['key' => 'id'])) {
 			$linkParameter = new Ytnuk\Link\Parameter\Entity;
 			$linkParameter->key = 'id';
-			$linkParameter->value = $this->getEntity()->getPersistedId() ? : $this->getRepository()->persist(
-				$this->getEntity()
-			)->getPersistedId()
-			;
+			$linkParameter->value = $this->entity->getPersistedId() ? : $this->repository->persist(
+				$this->entity
+			)->getPersistedId();
 			$link->parameters->add($linkParameter);
 		}
 
