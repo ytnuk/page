@@ -1,6 +1,7 @@
 <?php
 namespace Ytnuk\Page;
 
+use Nette;
 use Ytnuk;
 
 /**
@@ -81,10 +82,7 @@ class Presenter
 			$redraw
 		);
 		if ($this->page) {
-			$this[Control::class]->redrawControl(
-				$snippet,
-				$redraw
-			);
+			$this[Control::class]->redrawControl();
 		}
 	}
 
