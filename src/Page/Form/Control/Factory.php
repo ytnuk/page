@@ -3,18 +3,8 @@ namespace Ytnuk\Page\Form\Control;
 
 use Ytnuk;
 
-/**
- * Interface Factory
- *
- * @package Ytnuk\Page
- */
 interface Factory
 {
 
-	/**
-	 * @param Ytnuk\Page\Entity $page
-	 *
-	 * @return Ytnuk\Page\Form\Control
-	 */
-	public function create(Ytnuk\Page\Entity $page);
+	public function create(Ytnuk\Page\Entity $page) : Ytnuk\Page\Form\Control;
 }

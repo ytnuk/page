@@ -4,11 +4,6 @@ namespace Ytnuk\Page;
 use Nette;
 use Ytnuk;
 
-/**
- * Class Presenter
- *
- * @package Ytnuk\Page
- */
 class Presenter
 	extends Ytnuk\Web\Presenter
 {
@@ -28,10 +23,6 @@ class Presenter
 	 */
 	private $control;
 
-	/**
-	 * @param Repository $repository
-	 * @param Control\Factory $control
-	 */
 	public function __construct(
 		Repository $repository,
 		Control\Factory $control
@@ -41,24 +32,14 @@ class Presenter
 		$this->control = $control;
 	}
 
-	/**
-	 * @param int $id
-	 *
-	 * @throws \Nette\Application\BadRequestException
-	 */
-	public function actionView($id)
+	public function actionView(int $id)
 	{
 		if ( ! $this->page = $this->repository->getById($id)) {
 			$this->error();
 		}
 	}
 
-	/**
-	 * @param int $id
-	 *
-	 * @throws \Nette\Application\BadRequestException
-	 */
-	public function actionEdit($id)
+	public function actionEdit(int $id)
 	{
 		if ( ! $this->page = $this->repository->getById($id)) {
 			$this->error();
@@ -70,12 +51,9 @@ class Presenter
 		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function redrawControl(
-		$snippet = NULL,
-		$redraw = TRUE
+		string $snippet = NULL,
+		bool $redraw = TRUE
 	) {
 		parent::redrawControl(
 			$snippet,
@@ -86,10 +64,7 @@ class Presenter
 		}
 	}
 
-	/**
-	 * @return Control
-	 */
-	protected function createComponentYtnukPageControl()
+	protected function createComponentYtnukPageControl() : Control
 	{
 		return $this->control->create($this->page ? : new Entity);
 	}

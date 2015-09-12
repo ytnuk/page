@@ -4,11 +4,6 @@ namespace Ytnuk\Page\Form;
 use Nette;
 use Ytnuk;
 
-/**
- * Class Container
- *
- * @package Ytnuk\Page
- */
 final class Container
 	extends Ytnuk\Orm\Form\Container
 {
@@ -23,9 +18,6 @@ final class Container
 	 */
 	private $repository;
 
-	/**
-	 * @inheritDoc
-	 */
 	public function __construct(
 		Ytnuk\Page\Entity $entity,
 		Ytnuk\Page\Repository $repository
@@ -38,22 +30,17 @@ final class Container
 		$this->repository = $repository;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	protected function attached($form)
 	{
 		parent::attached($form);
 		unset($this['menu']['link']);
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function setValues(
 		$values,
 		$erase = FALSE
-	) {
+	) : Ytnuk\Orm\Form\Container
+	{
 		$container = parent::setValues(
 			$values,
 			$erase
