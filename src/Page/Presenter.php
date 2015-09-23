@@ -48,7 +48,7 @@ class Presenter
 
 	public function renderEdit()
 	{
-		$this[Ytnuk\Web\Control::class][Ytnuk\Menu\Control::class][] = 'page.presenter.action.edit';
+		$this[Ytnuk\Web\Control::NAME][Ytnuk\Menu\Control::NAME][] = 'page.presenter.action.edit';
 	}
 
 	public function redrawControl(
@@ -60,11 +60,11 @@ class Presenter
 			$redraw
 		);
 		if ($this->page) {
-			$this[Control::class]->redrawControl();
+			$this[Control::NAME]->redrawControl();
 		}
 	}
 
-	protected function createComponentYtnukPageControl() : Control
+	protected function createComponentPage() : Control
 	{
 		return $this->control->create($this->page ? : new Entity);
 	}
