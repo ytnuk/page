@@ -11,7 +11,7 @@ class Presenter
 	/**
 	 * @var Entity
 	 */
-	private $page;
+	private $entity;
 
 	/**
 	 * @var Repository
@@ -34,14 +34,14 @@ class Presenter
 
 	public function actionView(int $id)
 	{
-		if ( ! $this->page = $this->repository->getById($id)) {
+		if ( ! $this->entity = $this->repository->getById($id)) {
 			$this->error();
 		}
 	}
 
 	public function actionEdit(int $id)
 	{
-		if ( ! $this->page = $this->repository->getById($id)) {
+		if ( ! $this->entity = $this->repository->getById($id)) {
 			$this->error();
 		}
 	}
@@ -59,13 +59,13 @@ class Presenter
 			$snippet,
 			$redraw
 		);
-		if ($this->page) {
+		if ($this->entity) {
 			$this[Control::NAME]->redrawControl();
 		}
 	}
 
 	protected function createComponentPage() : Control
 	{
-		return $this->control->create($this->page ? : new Entity);
+		return $this->control->create($this->entity ? : new Entity);
 	}
 }
