@@ -51,17 +51,10 @@ class Presenter
 		$this[Ytnuk\Web\Control::NAME][Ytnuk\Menu\Control::NAME][] = 'page.presenter.action.edit';
 	}
 
-	public function redrawControl(
-		string $snippet = NULL,
-		bool $redraw = TRUE
-	) {
-		parent::redrawControl(
-			$snippet,
-			$redraw
-		);
-		if ($this->entity) {
-			$this[Control::NAME]->redrawControl();
-		}
+	protected function beforeRender()
+	{
+		parent::beforeRender();
+		$this[Control::NAME]->redrawControl();
 	}
 
 	protected function createComponentPage() : Control
