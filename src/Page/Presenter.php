@@ -51,12 +51,6 @@ class Presenter
 		$this[Ytnuk\Web\Control::NAME][Ytnuk\Menu\Control::NAME][] = 'page.presenter.action.edit';
 	}
 
-	protected function beforeRender()
-	{
-		parent::beforeRender();
-		$this[Control::NAME]->redrawControl();
-	}
-
 	protected function createComponentPage() : Control
 	{
 		return $this->control->create($this->entity ? : new Entity);
