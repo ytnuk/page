@@ -1,5 +1,6 @@
 {
 	"name": "ytnuk/page",
+	"type": "ytnuk/module",
 	"require": {
 		"ytnuk/application": "dev-master",
 		"ytnuk/menu": "dev-master",
