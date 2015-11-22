@@ -4,7 +4,7 @@ namespace Ytnuk\Page;
 use Nette;
 use Ytnuk;
 
-class Presenter
+final class Presenter
 	extends Ytnuk\Web\Application\Presenter
 {
 
