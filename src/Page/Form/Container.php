@@ -22,10 +22,7 @@ final class Container
 		Ytnuk\Page\Entity $entity,
 		Ytnuk\Page\Repository $repository
 	) {
-		parent::__construct(
-			$entity,
-			$repository
-		);
+		parent::__construct($entity, $repository);
 		$this->entity = $entity;
 		$this->repository = $repository;
 	}
@@ -41,18 +38,13 @@ final class Container
 		$erase = FALSE
 	) : Ytnuk\Orm\Form\Container
 	{
-		$container = parent::setValues(
-			$values,
-			$erase
-		);
+		$container = parent::setValues($values, $erase);
 		$link = $this->entity->menu->link;
 		$link->module = 'Page';
 		if ( ! $link->parameters->get()->getBy(['key' => $key = current($this->repository->getEntityMetadata()->getPrimaryKey())])) {
 			$linkParameter = new Ytnuk\Link\Parameter\Entity;
 			$linkParameter->key = $key;
-			$linkParameter->value = $this->entity->getPersistedId() ? : $this->repository->persist(
-				$this->entity
-			)->getPersistedId();
+			$linkParameter->value = $this->entity->getPersistedId() ? : $this->repository->persist($this->entity)->getPersistedId();
 			$link->parameters->add($linkParameter);
 		}
 

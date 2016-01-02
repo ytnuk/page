@@ -11,9 +11,6 @@ final class Control
 		Ytnuk\Page\Entity $page,
 		Ytnuk\Orm\Form\Factory $form
 	) {
-		parent::__construct(
-			$page,
-			$form
-		);
+		parent::__construct($page, $form);
 	}
 }
